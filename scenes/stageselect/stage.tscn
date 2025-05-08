@@ -1,0 +1,212 @@
+[gd_scene load_steps=31 format=3 uid="uid://c81k1ynd1swsh"]
+
+[ext_resource type="Texture2D" uid="uid://ca8h68vvygd77" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png" id="1_dnsnh"]
+[ext_resource type="Script" uid="uid://chlndalf302o" path="res://scenes/stageselect/stage.gd" id="1_on22f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on22f"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfx7f"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tblb8"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk3bg"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d37xh"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v8ci"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csya0"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp4dn"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avg5t"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uemi0"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521sm"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbeuk"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw7p7"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cyvm"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvidf"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr2wc"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyh4l"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj1jq"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1088, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l545i"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1152, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_253p2"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1216, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1xmy"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4035"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1344, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd80w"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1408, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ip7n"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1472, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhp3s"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1536, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx80h"]
+atlas = ExtResource("1_dnsnh")
+region = Rect2(1600, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wecr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on22f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfx7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tblb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk3bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d37xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v8ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csya0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp4dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avg5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uemi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbeuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw7p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cyvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvidf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr2wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyh4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj1jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l545i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_253p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1xmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4035")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd80w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ip7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhp3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx80h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2rhi"]
+size = Vector2(34, 49)
+
+[node name="stage" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_on22f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1wecr")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 7.5)
+shape = SubResource("RectangleShape2D_m2rhi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

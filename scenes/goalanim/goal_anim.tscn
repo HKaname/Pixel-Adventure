@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://ljbu2m0v61uh"]
+
+[ext_resource type="Texture2D" uid="uid://dbu7uwjmkcpvg" path="res://assets/Main Characters/Desappearing (96x96).png" id="1_1bbvv"]
+[ext_resource type="Script" uid="uid://bdamdrsq682vp" path="res://scenes/goalanim/goal_anim.gd" id="2_puvdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4man"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgw8g"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_623c6"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtjpo"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03vxy"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4mtq"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naxhi"]
+atlas = ExtResource("1_1bbvv")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84xo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4man")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgw8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_623c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtjpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03vxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4mtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naxhi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="goal_Anim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_84xo5")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("2_puvdb")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

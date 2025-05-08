@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bhklv4efuna0m"]
+
+[ext_resource type="FontFile" uid="uid://bic3jrobjjui" path="res://assets/font/nicoca_v2-5.ttf" id="1_vdwbc"]
+[ext_resource type="StyleBox" uid="uid://csmwn7fo2af52" path="res://assets/theme/button.tres" id="2_q2qyn"]
+[ext_resource type="StyleBox" uid="uid://16hfka5fm6ms" path="res://assets/theme/panel_container.tres" id="3_q2qyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sessm"]
+bg_color = Color(0.729412, 0.364706, 0.184314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdwbc"]
+
+[resource]
+Button/fonts/font = ExtResource("1_vdwbc")
+Button/styles/focus = SubResource("StyleBoxFlat_sessm")
+Button/styles/normal = ExtResource("2_q2qyn")
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_vdwbc")
+Label/styles/normal = SubResource("StyleBoxEmpty_vdwbc")
+PanelContainer/styles/panel = ExtResource("3_q2qyn")
+VBoxContainer/constants/separation = 20

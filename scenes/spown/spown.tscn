@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://cis7mbjk3mgv4"]
+
+[ext_resource type="Texture2D" uid="uid://bm31cootjm7gt" path="res://assets/Main Characters/Appearing (96x96).png" id="1_iyune"]
+[ext_resource type="Script" uid="uid://brnp6uluux45x" path="res://scenes/spown/spown.gd" id="2_6vfqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vfqg"]
+atlas = ExtResource("1_iyune")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ahn"]
+atlas = ExtResource("1_iyune")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jghy3"]
+atlas = ExtResource("1_iyune")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ukr8"]
+atlas = ExtResource("1_iyune")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0tlh"]
+atlas = ExtResource("1_iyune")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mcil"]
+atlas = ExtResource("1_iyune")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csslk"]
+atlas = ExtResource("1_iyune")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfbfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vfqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2ahn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jghy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ukr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0tlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mcil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csslk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Spown" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_gfbfq")
+autoplay = "default"
+script = ExtResource("2_6vfqg")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
