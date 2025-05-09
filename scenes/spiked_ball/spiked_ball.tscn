@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://bajh08v4cl74d"]
+
+[ext_resource type="Script" uid="uid://dnb7pd1t7n1ul" path="res://scenes/spiked_ball/spiked_ball.gd" id="1_og7tw"]
+[ext_resource type="Texture2D" uid="uid://dxfnd1cjlf2n" path="res://assets/Traps/Spiked Ball/Chain.png" id="2_wh5yy"]
+[ext_resource type="Texture2D" uid="uid://cfcwlak8eg7qs" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="3_lwykl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4r8k"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf4a2"]
+radius = 12.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfhhh"]
+
+[node name="SpikedBall" type="Node2D"]
+script = ExtResource("1_og7tw")
+
+[node name="Chain1" type="RigidBody2D" parent="."]
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain1"]
+texture = ExtResource("2_wh5yy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain1"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_d4r8k")
+
+[node name="Chain2" type="RigidBody2D" parent="."]
+position = Vector2(0, 11)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain2"]
+texture = ExtResource("2_wh5yy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain2"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_d4r8k")
+
+[node name="Chain3" type="RigidBody2D" parent="."]
+position = Vector2(0, 22)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain3"]
+texture = ExtResource("2_wh5yy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain3"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_d4r8k")
+
+[node name="Chain4" type="RigidBody2D" parent="."]
+position = Vector2(0, 33)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain4"]
+texture = ExtResource("2_wh5yy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain4"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_d4r8k")
+
+[node name="Chain5" type="RigidBody2D" parent="."]
+position = Vector2(0, 44)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain5"]
+texture = ExtResource("2_wh5yy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain5"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_d4r8k")
+
+[node name="SpikedBallHead" type="RigidBody2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpikedBallHead"]
+texture = ExtResource("3_lwykl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBallHead"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_gf4a2")
+
+[node name="Area2D" type="Area2D" parent="SpikedBallHead"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBallHead/Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_cfhhh")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0.5, 6)
+node_a = NodePath("../Chain1")
+node_b = NodePath("../Chain2")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0.5, 17)
+node_a = NodePath("../Chain2")
+node_b = NodePath("../Chain3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0.5, 28)
+node_a = NodePath("../Chain3")
+node_b = NodePath("../Chain4")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0.5, 39)
+node_a = NodePath("../Chain4")
+node_b = NodePath("../Chain5")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(0.5, 51)
+node_a = NodePath("../Chain5")
+node_b = NodePath("../SpikedBallHead")

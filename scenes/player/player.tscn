@@ -1,14 +1,68 @@
-[gd_scene load_steps=34 format=3 uid="uid://riv0add3j5h2"]
+[gd_scene load_steps=49 format=3 uid="uid://riv0add3j5h2"]
 
 [ext_resource type="Texture2D" uid="uid://7f160r4glv20" path="res://assets/Main Characters/Ninja Frog/Fall (32x32).png" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://bcw5w6c8imn2k" path="res://scenes/player/player.gd" id="1_p47bc"]
+[ext_resource type="Texture2D" uid="uid://5o14wb1ssxa7" path="res://assets/Main Characters/Ninja Frog/Double Jump (32x32).png" id="2_0owmy"]
 [ext_resource type="Texture2D" uid="uid://dioyk1w8mpnxb" path="res://assets/Main Characters/Ninja Frog/Idle (32x32).png" id="2_p47bc"]
 [ext_resource type="Texture2D" uid="uid://jcxvioytf5i2" path="res://assets/Main Characters/Ninja Frog/Jump (32x32).png" id="3_75vfm"]
 [ext_resource type="Texture2D" uid="uid://ci11d3ho8t0mn" path="res://assets/Main Characters/Ninja Frog/Run (32x32).png" id="4_0owmy"]
+[ext_resource type="Texture2D" uid="uid://cju2q5bqh6hou" path="res://assets/Main Characters/Ninja Frog/Hit (32x32).png" id="4_qek5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mf0n"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hvnv"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbmj2"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxw46"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qxvo"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q8fn"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("1_lvxji")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wva7c"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7obkq"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo27k"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_genst"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niom3"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttakn"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw8a5"]
+atlas = ExtResource("4_qek5x")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_p47bc")
@@ -110,11 +164,60 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5mf0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hvnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbmj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxw46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qxvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q8fn")
+}],
+"loop": false,
+"name": &"double_jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qek5x")
 }],
 "loop": true,
 "name": &"fall",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wva7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7obkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo27k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_genst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niom3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttakn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw8a5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -230,5 +333,15 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_p47bc")
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="JumpBuffer" type="Timer" parent="Timer"]
+wait_time = 0.25
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="Timer"]
+wait_time = 0.15
+one_shot = true
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

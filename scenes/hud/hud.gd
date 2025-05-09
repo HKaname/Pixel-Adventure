@@ -23,7 +23,7 @@ func _ready() -> void:
 	SignalManager.on_game_complete.connect(on_game_complete)  # ゲーム完了時のシグナルに接続
 
 func _process(delta: float) -> void:
-	var total_time = ScoreManager.get_total_item()
+	var total_time = ScoreManager.total_time
 	update_timer(total_time)
 	
 	# ゴール後、入力待ち状態になる
