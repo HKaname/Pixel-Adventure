@@ -314,7 +314,10 @@ size = Vector2(18, 22)
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+light_mask = 2
 z_index = 10
+collision_layer = 16
+collision_mask = 41
 script = ExtResource("1_p47bc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

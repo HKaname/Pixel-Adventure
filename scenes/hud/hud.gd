@@ -54,7 +54,7 @@ func set_level_lavel():
 	if total_level == current_level:
 		level.text = "FINAL STAGE"
 	else:
-		level.text = "STAGE" + str(current_level)
+		level.text = "STAGE " + str(current_level)
 		
 func set_item_label():
 	item.text = str(ScoreManager.get_total_item())

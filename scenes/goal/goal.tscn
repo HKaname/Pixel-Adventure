@@ -85,18 +85,18 @@ animations = [{
 size = Vector2(39, 57)
 
 [node name="Goal" type="Area2D"]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 8
+collision_mask = 16
 script = ExtResource("1_r84s2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)
 sprite_frames = SubResource("SpriteFrames_ic3hf")
-frame = 6
-frame_progress = 0.696384
+autoplay = "default"
+frame_progress = 0.0142938
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -28)
 shape = SubResource("RectangleShape2D_u2txo")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
