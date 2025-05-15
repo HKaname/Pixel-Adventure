@@ -1002,7 +1002,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"watermelon",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogrt1"]
@@ -1014,8 +1014,8 @@ script = ExtResource("1_2rjfe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kgx17")
-animation = &"orange"
-frame_progress = 0.0436272
+animation = &"watermelon"
+frame_progress = 0.976968
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ogrt1")

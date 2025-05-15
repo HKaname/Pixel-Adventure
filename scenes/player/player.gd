@@ -7,6 +7,7 @@ enum PLAYER_STATE {
 	RUN,
 	JUMP,
 	DOUBLE_JUMP,
+	WALL_JUMP,
 	FALL,
 	HIT,
 }
@@ -31,9 +32,12 @@ var can_move: bool = true
 # ジャンプ関連の設定
 @export_group("jump")
 @export var jump_force: float = 300.0  # ジャンプ力
+@export var wall_jump_force: Vector2 = Vector2(200.0, -300.0)
 @export var max_y_velocity: float = 400.0  # 最大Y速度
 var cnt_jump: int = 0
 var can_jump: bool = false  # ジャンプ可能かどうかのフラグ
+var can_wall_jump: bool = false #カベジャンプ可能化のフラグ
+var is_wall_touch: bool = false
 
 #ヒット関係の設定
 @export_group("hit")
@@ -78,6 +82,10 @@ func apply_gravity(delta: float):
 	if !is_on_floor():  # 床に触れていない場合
 		velocity.y += GRAVITY * delta
 		velocity.y = min(velocity.y, max_y_velocity)
+		
+#カベとの接触を判定
+func is_touch_wall() -> bool:
+	return is_on_floor() == false and (get_slide_collision_count() > 0 and velocity.x != 0)
 
 # プレイヤーの入力を取得
 func get_input():
@@ -89,9 +97,14 @@ func get_input():
 		if is_on_floor() or coyote_timer.time_left:
 			can_jump = true
 			cnt_jump = 1
-		elif cnt_jump == 1:
+		elif cnt_jump == 1 or !can_wall_jump:
 			can_jump = true
 			cnt_jump += 1
+		elif is_touch_wall() and can_wall_jump:
+			velocity = Vector2(-direction.x * wall_jump_force.x, wall_jump_force.y)
+			is_wall_touch = false
+			can_wall_jump = false
+			set_state(PLAYER_STATE.WALL_JUMP)
 			
 		if velocity.y > 0 and not is_on_floor():
 			jump_buffer.start()
@@ -99,8 +112,7 @@ func get_input():
 # プレイヤーの移動処理
 func apply_movement(delta: float):
 	if can_jump or jump_buffer.time_left and is_on_floor():
-		velocity.y = -jump_force
-		can_jump = false
+		jump(jump_force)
 		
 	elif direction.x:
 		# プレイヤーの向きを左右反転
@@ -109,10 +121,22 @@ func apply_movement(delta: float):
 	else:
 		velocity.x = 0  # 横方向の速度をリセット
 		
+	#カベのスライド
+	if is_touch_wall() and !is_on_floor() and velocity.y > 0:
+		is_wall_touch = true
+		velocity.y = min(velocity.y, 50.0)
+		can_wall_jump = true
+	else:
+		is_wall_touch = false
+		
 	var on_floor = is_on_floor()
 	move_and_slide()
 	if on_floor and not is_on_floor() and velocity.y >= 0:
 		coyote_timer.start()
+		
+func jump(froce: float):
+	velocity.y = -froce
+	can_jump = false
 
 # プレイヤーの状態を更新
 func update_state():
@@ -125,11 +149,13 @@ func update_state():
 			set_state(PLAYER_STATE.RUN)  # 走行状態
 	else:
 		if velocity.y > 0:
-			set_state(PLAYER_STATE.FALL)  # 落下状態
+			set_state(PLAYER_STATE.FALL)  # 落下状態				
 		elif cnt_jump == 1:
 			set_state(PLAYER_STATE.JUMP)  # ジャンプ状態
 		elif cnt_jump == 2:
 			set_state(PLAYER_STATE.DOUBLE_JUMP) #ダブルジャンプ
+		elif is_wall_touch:
+			set_state(PLAYER_STATE.WALL_JUMP)
 			
 # プレイヤーの状態を設定
 func set_state(new_state: PLAYER_STATE):
@@ -152,6 +178,8 @@ func set_state(new_state: PLAYER_STATE):
 			animated_sprite_2d.play("fall")
 		PLAYER_STATE.HIT:
 			animated_sprite_2d.play("hit")
+		PLAYER_STATE.WALL_JUMP:
+			animated_sprite_2d.play("wall_jump")
 			
 func add_child_deferred(child_to_add):
 	get_tree().root.add_child(child_to_add)

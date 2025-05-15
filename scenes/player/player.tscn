@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://riv0add3j5h2"]
+[gd_scene load_steps=55 format=3 uid="uid://riv0add3j5h2"]
 
 [ext_resource type="Texture2D" uid="uid://7f160r4glv20" path="res://assets/Main Characters/Ninja Frog/Fall (32x32).png" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://bcw5w6c8imn2k" path="res://scenes/player/player.gd" id="1_p47bc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jcxvioytf5i2" path="res://assets/Main Characters/Ninja Frog/Jump (32x32).png" id="3_75vfm"]
 [ext_resource type="Texture2D" uid="uid://ci11d3ho8t0mn" path="res://assets/Main Characters/Ninja Frog/Run (32x32).png" id="4_0owmy"]
 [ext_resource type="Texture2D" uid="uid://cju2q5bqh6hou" path="res://assets/Main Characters/Ninja Frog/Hit (32x32).png" id="4_qek5x"]
+[ext_resource type="Texture2D" uid="uid://c2e7jw1u5kibm" path="res://assets/Main Characters/Ninja Frog/Wall Jump (32x32).png" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mf0n"]
 atlas = ExtResource("2_0owmy")
@@ -160,6 +161,26 @@ region = Rect2(320, 0, 32, 32)
 atlas = ExtResource("4_0owmy")
 region = Rect2(352, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwuka"]
+atlas = ExtResource("8_qek5x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyqqp"]
+atlas = ExtResource("8_qek5x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds1xl"]
+atlas = ExtResource("8_qek5x")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u1sw"]
+atlas = ExtResource("8_qek5x")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t3bg"]
+atlas = ExtResource("8_qek5x")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5mf0n"]
 animations = [{
 "frames": [{
@@ -191,7 +212,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -305,6 +326,26 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwuka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyqqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds1xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u1sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t3bg")
+}],
+"loop": false,
+"name": &"wall_jump",
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hvnv"]
@@ -322,8 +363,10 @@ script = ExtResource("1_p47bc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5mf0n")
-animation = &"idle"
+animation = &"wall_jump"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -348,3 +391,5 @@ wait_time = 0.15
 one_shot = true
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
