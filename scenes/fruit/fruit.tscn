@@ -721,7 +721,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fq8tv")
 }],
 "loop": true,
-"name": &"cherrie",
+"name": &"cherry",
 "speed": 15.0
 }, {
 "frames": [{
@@ -1014,8 +1014,7 @@ script = ExtResource("1_2rjfe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kgx17")
-animation = &"watermelon"
-frame_progress = 0.976968
+animation = &"cherry"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ogrt1")

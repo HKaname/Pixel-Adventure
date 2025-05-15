@@ -8,9 +8,10 @@
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf4a2"]
-radius = 12.0416
+radius = 9.51315
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfhhh"]
+radius = 12.51
 
 [node name="SpikedBall" type="Node2D"]
 script = ExtResource("1_og7tw")
@@ -79,9 +80,11 @@ texture = ExtResource("3_lwykl")
 position = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_gf4a2")
 
-[node name="Area2D" type="Area2D" parent="SpikedBallHead"]
+[node name="HitBox" type="Area2D" parent="SpikedBallHead"]
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBallHead/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBallHead/HitBox"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_cfhhh")
 

@@ -7,7 +7,7 @@ extends AnimatableBody2D
 var tween: Tween
 
 func _ready() -> void:
-	var distance = start.global_position.direction_to(end.global_position)
+	var distance = start.global_position.distance_to(end.global_position)
 	var move_time = distance / speed
 	
 	tween = get_tree().create_tween()
@@ -15,5 +15,5 @@ func _ready() -> void:
 	tween.tween_property(self, "global_position", start.global_position, move_time)
 	tween.tween_property(self, "global_position", end.global_position, move_time)
 	
-func _enter_tree() -> void:
+func _exit_tree() -> void:
 	tween.kill()

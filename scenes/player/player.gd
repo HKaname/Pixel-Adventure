@@ -97,14 +97,14 @@ func get_input():
 		if is_on_floor() or coyote_timer.time_left:
 			can_jump = true
 			cnt_jump = 1
-		elif cnt_jump == 1 or !can_wall_jump:
+		elif cnt_jump == 1 and !is_touch_wall():
 			can_jump = true
 			cnt_jump += 1
-		elif is_touch_wall() and can_wall_jump:
+		elif is_touch_wall():
 			velocity = Vector2(-direction.x * wall_jump_force.x, wall_jump_force.y)
 			is_wall_touch = false
-			can_wall_jump = false
 			set_state(PLAYER_STATE.WALL_JUMP)
+			can_wall_jump = false
 			
 		if velocity.y > 0 and not is_on_floor():
 			jump_buffer.start()
